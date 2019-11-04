@@ -1,6 +1,6 @@
 #include <Servo.h> 
 
-class Sweeper
+class Swinger
 {
   Servo servo;              // the servo
   int pos;                  // current servo position 
@@ -12,7 +12,7 @@ class Sweeper
   int attachPin;
   
 public: 
-  Sweeper(int interval)
+  Swinger(int interval)
   {
     updateInterval = interval;
     pos = 20;
