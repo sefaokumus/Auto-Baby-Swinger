@@ -2,6 +2,7 @@
 #include "Swinger.h"
 
 int RECV_PIN = 11;
+int SERVO_PIN = 9;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
 int previousCode =0;
@@ -139,7 +140,7 @@ void loop() {
     irrecv.resume(); // Receive the next value
   }
   if(state == HIGH)
-      swinger1.Attach(9);
+      swinger1.Attach(SERVO_PIN);
   else
     swinger1.Detach();
     
