@@ -1,5 +1,5 @@
 #include <IRremote.h>
-#include "Sweeper.h"
+#include "Swinger.h"
 
 int RECV_PIN = 11;
 IRrecv irrecv(RECV_PIN);
@@ -25,14 +25,14 @@ int previousCode =0;
 #define DOWN_ARROW 0xFF4AB5
 
 int state = LOW ;
-Sweeper sweeper1(10);
+Swinger swinger1(10);
 void setup()
 {
   Serial.begin(9600);
   Serial.println("Enabling IRin");
   irrecv.enableIRIn(); 
   Serial.println("Enabled IRin");
-  sweeper1.Attach(9);
+  swinger1.Attach(9);
 }
 
 void loop() {
@@ -47,55 +47,55 @@ void loop() {
       case BUTTON_1:
         Serial.println("Pressed Button 1"); // for debuging
         state = LOW;
-        sweeper1.setInterval(3,0);
+        swinger1.setInterval(3,0);
         state = HIGH;
         break;
       case BUTTON_2:
         Serial.println("Pressed Button 2"); // for debuging
         state = LOW;
-        sweeper1.setInterval(5,3);
+        swinger1.setInterval(5,3);
         state = HIGH;
         break;
       case BUTTON_3:
         Serial.println("Pressed Button 3"); // for debuging
         state = LOW;
-        sweeper1.setInterval(5,5);
+        swinger1.setInterval(5,5);
         state = HIGH;
         break;
       case BUTTON_4:
         Serial.println("Pressed Button 4"); // for debuging
         state = LOW;
-        sweeper1.setInterval(7,0);
+        swinger1.setInterval(7,0);
         state = HIGH;
         break;
       case BUTTON_5:
         Serial.println("Pressed Button 5"); // for debuging
         state = LOW;
-        sweeper1.setInterval(7,5);
+        swinger1.setInterval(7,5);
         state = HIGH;
         break;
       case BUTTON_6:
         Serial.println("Pressed Button 6"); // for debuging
         state = LOW;
-        sweeper1.setInterval(9,0);
+        swinger1.setInterval(9,0);
         state = HIGH;
         break;
       case BUTTON_7:
         Serial.println("Pressed Button 7"); // for debuging
         state = LOW;
-        sweeper1.setInterval(9,5);
+        swinger1.setInterval(9,5);
         state = HIGH;
         break;
       case BUTTON_8:
         Serial.println("Pressed Button 8"); // for debuging
         state = LOW;
-        sweeper1.setInterval(11,0);
+        swinger1.setInterval(11,0);
         state = HIGH;
         break;
       case BUTTON_9:
         Serial.println("Pressed Button 9"); // for debuging
         state = LOW;
-        sweeper1.setInterval(11,5);
+        swinger1.setInterval(11,5);
         state = HIGH;
         break;
       case BUTTON_STAR:
@@ -112,7 +112,7 @@ void loop() {
       case UP_ARROW:
         Serial.println("Pressed Button UP"); // for debuging
         state = LOW;
-        sweeper1.increaseInterval();
+        swinger1.increaseInterval();
         state = HIGH;
         break;
       case LEFT_ARROW:
@@ -127,7 +127,7 @@ void loop() {
       case DOWN_ARROW:
         Serial.println("Pressed Button DOWN"); // for debuging
         state = LOW;
-        sweeper1.decreaseInterval();
+        swinger1.decreaseInterval();
         state = HIGH;
         break;
       default:
@@ -139,11 +139,11 @@ void loop() {
     irrecv.resume(); // Receive the next value
   }
   if(state == HIGH)
-      sweeper1.Attach(9);
+      swinger1.Attach(9);
   else
-    sweeper1.Detach();
+    swinger1.Detach();
     
-    sweeper1.Update();
+    swinger1.Update();
     
  
 }
